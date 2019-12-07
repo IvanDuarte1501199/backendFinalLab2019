@@ -1,10 +1,10 @@
-import profesor from '../models/profesor';
+import Profesor from '../models/profesor';
 import { Op } from 'sequelize';
 
 export async function obtenerProfesores(req, res) {
 
     try {
-        const profesores = await profesor.findAll();
+        const profesores = await Profesor.findAll();
 
         res.json(profesores);
     }
@@ -18,7 +18,7 @@ export async function obtenerProfesores(req, res) {
 export async function crearProfesor(req, res) {
     const {id, dni, nombre, apellido, fechaNacimiento} = req.body;
     try {
-        const profesor = await profesor.create({
+        const profesor = await Profesor.create({
             id, 
             dni, 
             nombre, 
@@ -47,7 +47,7 @@ export async function crearProfesor(req, res) {
 export async function obtenerProfesor(req, res) {
 
     try {
-        const profesor = await profesor.findOne({
+        const profesor = await Profesor.findOne({
             where: { id: req.params.idProfesor }
         });
 
@@ -73,7 +73,7 @@ export async function obtenerProfesor(req, res) {
 export async function borrarProfesor(req, res) {
     const { idProfesor } = req.params;
     try {
-        const cantidadFilasBorradas = await profesor.destroy({
+        const cantidadFilasBorradas = await Profesor.destroy({
             where: { id: idProfesor }
         });
 
@@ -92,11 +92,11 @@ export async function modificarProfesor(req, res) {
     const { idProfesor } = req.params;
     const { id, dni, nombre, apellido, fechaNacimiento} = req.body;
     try{
-        const profesor = await profesor.findOne({
+        const profesor = await Profesor.findOne({
             where: { id: idProfesor }
         })
         if(profesor) {
-            const profesorModificado = await profesor.update({
+            const profesorModificado = await Profesor.update({
                 id, 
                 dni, 
                 nombre, 

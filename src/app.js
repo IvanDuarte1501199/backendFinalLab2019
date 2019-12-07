@@ -6,12 +6,8 @@ import profesorRuta from './routes/profesor.route';
 import cursoRuta from './routes/curso.route';
 import cursoalumnoRuta from './routes/curso_alumno.route';
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "*")
-  next();
-});
+
+
 
 //inicializar express
 const app = express();
@@ -19,6 +15,15 @@ const app = express();
 //middleware
 app.use(morgan('dev'));
 app.use(express.json());
+
+
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "*")
+  next();
+});
 
 //rutas
 app.use('/api/alumnos', alumnosRuta);

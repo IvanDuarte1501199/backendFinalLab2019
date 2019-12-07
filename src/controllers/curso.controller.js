@@ -1,10 +1,10 @@
-import curso from '../models/curso';
+import Curso from '../models/curso';
 import { Op } from 'sequelize';
 
 export async function obtenerCursos(req, res) {
 
     try {
-        const cursos = await curso.findAll();
+        const cursos = await Curso.findAll();
 
         res.json(cursos);
     }
@@ -18,7 +18,7 @@ export async function obtenerCursos(req, res) {
 export async function crearCurso(req, res) {
     const { id, nombre, fechaInicio, FechaFin, profesorId, profesorauxId } = req.body;
     try {
-        const curso = await curso.create({
+        const curso = await Curso.create({
             id,
             nombre,
             fechaInicio,
@@ -48,7 +48,7 @@ export async function crearCurso(req, res) {
 export async function obtenerCurso(req, res) {
 
     try {
-        const curso = await curso.findOne({
+        const curso = await Curso.findOne({
             where: { id: req.params.idCurso }
         });
 
@@ -74,7 +74,7 @@ export async function obtenerCurso(req, res) {
 export async function borrarCurso(req, res) {
     const { idCurso } = req.params;
     try {
-        const cantidadFilasBorradas = await curso.destroy({
+        const cantidadFilasBorradas = await Curso.destroy({
             where: { id: idCurso }
         });
 
@@ -93,11 +93,11 @@ export async function modificarCurso(req, res) {
     const { idCurso } = req.params;
     const {  id, nombre, fechaInicio, FechaFin, profesorId, profesorauxId  } = req.body;
     try {
-        const curso = await curso.findOne({
+        const curso = await Curso.findOne({
             where: { id: idCurso }
         })
         if (curso) {
-            const cursoModificado = await curso.update({
+            const cursoModificado = await Curso.update({
                 id,
                 nombre,
                 fechaInicio,

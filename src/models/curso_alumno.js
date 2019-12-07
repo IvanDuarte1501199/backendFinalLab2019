@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import database from '../database/database';
 
-const curso_alumno = database.define('curso_alumno', {
+const Curso_alumno = database.define('curso_alumno', {
  
     id: {
         type: Sequelize.INTEGER,
@@ -18,4 +18,4 @@ const curso_alumno = database.define('curso_alumno', {
     },
 });
 
-export default curso_alumno;
+export default Curso_alumno;

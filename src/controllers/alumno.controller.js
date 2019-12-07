@@ -1,10 +1,10 @@
-import alumno from '../models/alumno';
+import Alumno from '../models/Alumno';
 import { Op } from 'sequelize';
 
 export async function obtenerAlumnos(req, res) {
 
     try {
-        const alumnos = await alumno.findAll();
+        const alumnos = await Alumno.findAll();
 
         res.json(alumnos);
     }
@@ -18,7 +18,7 @@ export async function obtenerAlumnos(req, res) {
 export async function crearAlumno(req, res) {
     const {id, dni, nombre, apellido, fechaNacimiento} = req.body;
     try {
-        const alumno = await alumno.create({
+        const alumno = await Alumno.create({
             id, 
             dni, 
             nombre, 
@@ -44,10 +44,11 @@ export async function crearAlumno(req, res) {
 
 }
 
+
 export async function obtenerAlumno(req, res) {
 
     try {
-        const alumno = await alumno.findOne({
+        const alumno = await Alumno.findOne({
             where: { id: req.params.idAlumno }
         });
 
@@ -73,7 +74,7 @@ export async function obtenerAlumno(req, res) {
 export async function borrarAlumno(req, res) {
     const { idAlumno } = req.params;
     try {
-        const cantidadFilasBorradas = await alumno.destroy({
+        const cantidadFilasBorradas = await Alumno.destroy({
             where: { id: idAlumno }
         });
 
@@ -92,11 +93,11 @@ export async function modificarAlumno(req, res) {
     const { idAlumno } = req.params;
     const { id, dni, nombre, apellido, fechaNacimiento} = req.body;
     try{
-        const alumno = await alumno.findOne({
+        const alumno = await Alumno.findOne({
             where: { id: idAlumno }
         })
         if(alumno) {
-            const alumnoModificado = await alumno.update({
+            const alumnoModificado = await Alumno.update({
                 id, 
                 dni, 
                 nombre, 
