@@ -29,7 +29,7 @@ app.use(function (req, res, next) {
 app.use('/api/alumnos', alumnosRuta);
 app.use('/api/profesores', profesorRuta);
 app.use('/api/cursos', cursoRuta);
-app.use('/api/curso_alumnos', cursoalumnoRuta);
+app.use('/api/cursos_alumno', cursoalumnoRuta);
 
 //sincronizacion con la db
 database.sync()

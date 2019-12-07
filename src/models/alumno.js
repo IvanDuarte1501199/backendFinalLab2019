@@ -21,7 +21,7 @@ const Alumno = database.define('alumno', {
         allowNull: false
     },
     fechaNacimiento: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
     }
 });

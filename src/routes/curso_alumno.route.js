@@ -14,4 +14,6 @@ cursoalumnoRuta.put('/:idursoAlumno', modificarCursoAlumno);
 
 cursoalumnoRuta.delete('/:idursoAlumno', borrarCursoAlumno);
 
+
+
 export default cursoalumnoRuta;

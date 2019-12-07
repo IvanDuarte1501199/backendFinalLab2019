@@ -1,5 +1,6 @@
 import Sequelize from 'sequelize';
 import database from '../database/database';
+import Curso from '../models/Curso';
 
 const Profesor = database.define('profesor', {
  
@@ -21,9 +22,11 @@ const Profesor = database.define('profesor', {
         allowNull: false
     },
     fechaNacimiento: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false
     }
 });
+
+
 
 export default Profesor;
