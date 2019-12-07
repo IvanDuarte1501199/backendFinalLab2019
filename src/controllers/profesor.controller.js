@@ -1,4 +1,4 @@
-import Profesor from '../models/profesor';
+import Profesor from '../models/Profesor';
 import { Op } from 'sequelize';
 
 export async function obtenerProfesores(req, res) {
@@ -79,7 +79,7 @@ export async function borrarProfesor(req, res) {
 
             res.json({
                 data: {},
-                message: `Se eliminaron ${cantidadFilasBorradas} profesor`    
+                message: `Se eliminaron ${cantidadFilasBorradas} profesores`    
             })
         } catch (e) {
         res.status(500).json({

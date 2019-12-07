@@ -16,7 +16,7 @@ const Curso = database.define('curso', {
         type: Sequelize.DATE,
         allowNull: false
     },
-    FechaFin: {
+    fechaFin: {
         type: Sequelize.DATE,
         allowNull: false
     },

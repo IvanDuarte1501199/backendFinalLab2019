@@ -16,13 +16,13 @@ export async function obtenerCursos(req, res) {
 }
 
 export async function crearCurso(req, res) {
-    const { id, nombre, fechaInicio, FechaFin, profesorId, profesorauxId } = req.body;
+    const { id, nombre, fechaInicio, fechaFin, profesorId, profesorauxId } = req.body;
     try {
         const curso = await Curso.create({
             id,
             nombre,
             fechaInicio,
-            FechaFin,
+            fechaFin,
             profesorId,
             profesorauxId
         });
@@ -91,7 +91,7 @@ export async function borrarCurso(req, res) {
 
 export async function modificarCurso(req, res) {
     const { idCurso } = req.params;
-    const {  id, nombre, fechaInicio, FechaFin, profesorId, profesorauxId  } = req.body;
+    const {  id, nombre, fechaInicio, fechaFin, profesorId, profesorauxId  } = req.body;
     try {
         const curso = await Curso.findOne({
             where: { id: idCurso }
@@ -101,7 +101,7 @@ export async function modificarCurso(req, res) {
                 id,
                 nombre,
                 fechaInicio,
-                FechaFin,
+                fechaFin,
                 profesorId,
                 profesorauxId
             });
