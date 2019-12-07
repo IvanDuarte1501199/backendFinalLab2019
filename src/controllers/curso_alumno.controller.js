@@ -94,7 +94,7 @@ export async function modificarCursoAlumno(req, res) {
             where: { id: idCursoAlumno }
         })
         if(curso_alumno) {
-            const cursoAlumnoModificado = await Curso_alumno.update({
+            const cursoAlumnoModificado = await curso_alumno.update({
                 id, 
                 cursoId, 
                 alumnoId

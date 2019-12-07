@@ -97,7 +97,7 @@ export async function modificarAlumno(req, res) {
             where: { id: idAlumno }
         })
         if(alumno) {
-            const alumnoModificado = await Alumno.update({
+            const alumnoModificado = await alumno.update({
                 id, 
                 dni, 
                 nombre, 
@@ -119,4 +119,6 @@ export async function modificarAlumno(req, res) {
             error: e.message
         })
     }
+
+
 }

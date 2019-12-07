@@ -96,7 +96,7 @@ export async function modificarProfesor(req, res) {
             where: { id: idProfesor }
         })
         if(profesor) {
-            const profesorModificado = await Profesor.update({
+            const profesorModificado = await profesor.update({
                 id, 
                 dni, 
                 nombre, 
