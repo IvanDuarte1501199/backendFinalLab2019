@@ -6,12 +6,12 @@ const profesorRuta = Router();
 
 profesorRuta.get('/', obtenerProfesores);
 
-profesorRuta.get('/:idAlumno', obtenerProfesor);
+profesorRuta.get('/:idProfesor', obtenerProfesor);
 
 profesorRuta.post('/', crearProfesor);
 
-profesorRuta.put('/:idAlumno', modificarProfesor);
+profesorRuta.put('/:idProfesor', modificarProfesor);
 
-profesorRuta.delete('/:idAlumno', borrarProfesor);
+profesorRuta.delete('/:idProfesor', borrarProfesor);
 
 export default profesorRuta;
