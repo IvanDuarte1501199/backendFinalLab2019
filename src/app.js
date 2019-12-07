@@ -6,6 +6,12 @@ import profesorRuta from './routes/profesor.route';
 import cursoRuta from './routes/curso.route';
 import cursoalumnoRuta from './routes/curso_alumno.route';
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "*")
+  next();
+});
 
 //inicializar express
 const app = express();
@@ -22,7 +28,7 @@ app.use('/api/curso_alumnos', cursoalumnoRuta);
 
 //sincronizacion con la db
 database.sync()
-.then(() => console.log('Base actualizada'));
+  .then(() => console.log('Base actualizada'));
 
 //exportamos la app
-export defau
+export default app;

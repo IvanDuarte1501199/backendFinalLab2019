@@ -101,12 +101,12 @@ export async function modificarCursoAlumno(req, res) {
             });
 
             res.json({
-                data: alumnoModificado
+                data: cursoAlumnoModificado
             })
         } else {
             res.status(404).json({
                 data: {},
-                message: `No se encontro el alumno con el id: ${idAlumno}`
+                message: `No se encontro el alumno con el id: ${idCursoAlumno}`
             })
         }
     } catch(e) {

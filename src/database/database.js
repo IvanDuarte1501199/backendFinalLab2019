@@ -5,7 +5,7 @@ const database = new Sequelize(
     'lab4-final','postgres','admin', {
         dialect: 'postgres',
         host: 'localhost',
-        port: 5433
+        port: 5432
     }
 );
 
